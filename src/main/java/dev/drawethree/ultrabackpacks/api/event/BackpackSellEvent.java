@@ -37,4 +37,8 @@ public class BackpackSellEvent extends Event {
 	public Player getPlayer() {
 		return player;
 	}
+
+	public double getMoneyToDeposit() {
+		return moneyToDeposit;
+	}
 }
