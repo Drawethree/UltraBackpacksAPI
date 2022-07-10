@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class BackpackSellEvent extends Event {
+public final class BackpackSellEvent extends Event {
 
 	private static final HandlerList handlers = new HandlerList();
 

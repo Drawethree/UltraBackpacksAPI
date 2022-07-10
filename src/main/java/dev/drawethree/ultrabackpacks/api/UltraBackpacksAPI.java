@@ -1,5 +1,6 @@
 package dev.drawethree.ultrabackpacks.api;
 
+import dev.drawethree.ultrabackpacks.api.exception.BackpackNotFoundException;
 import dev.drawethree.ultrabackpacks.api.model.backpack.IBackpackData;
 import dev.drawethree.ultrabackpacks.api.service.BackendAPI;
 import org.bukkit.block.Block;
@@ -7,7 +8,7 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class UltraBackpacksAPI {
+public final class UltraBackpacksAPI {
 
 	private UltraBackpacksAPI() {
 		throw new UnsupportedOperationException("Cannot instantiate UltraBackpacksAPI!");
@@ -29,7 +30,7 @@ public class UltraBackpacksAPI {
 	 * @param player Player
 	 * @return BackpackData.class
 	 */
-	public static IBackpackData getBackpackData(Player player) {
+	public static IBackpackData getBackpackData(Player player) throws BackpackNotFoundException {
 		return BackendAPI.getImplementation().getBackpackData(player);
 	}
 
@@ -39,7 +40,7 @@ public class UltraBackpacksAPI {
 	 * @param player  Player
 	 * @param sellAll If true, sells whole backpack. If false, sells only x amount of items based on AutoSell backpack enchant.
 	 */
-	public static void sellBackpack(Player player, boolean sellAll) {
+	public static void sellBackpack(Player player, boolean sellAll) throws BackpackNotFoundException {
 		BackendAPI.getImplementation().sellBackpack(player, sellAll);
 	}
 

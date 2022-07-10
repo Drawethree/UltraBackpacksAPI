@@ -1,5 +1,6 @@
 package dev.drawethree.ultrabackpacks.api.service;
 
+import dev.drawethree.ultrabackpacks.api.exception.BackpackNotFoundException;
 import dev.drawethree.ultrabackpacks.api.model.backpack.IBackpackData;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -24,16 +25,18 @@ public abstract class BackendAPI {
 	 *
 	 * @param player Player
 	 * @return BackpackData.class
+	 * @throws BackpackNotFoundException if player has no backpack
 	 */
-	public abstract IBackpackData getBackpackData(Player player);
+	public abstract IBackpackData getBackpackData(Player player) throws BackpackNotFoundException;
 
 	/**
 	 * Sells the contents of player backpack.
 	 *
 	 * @param player  Player
 	 * @param sellAll If true, sells whole backpack. If false, sells only x amount of items based on AutoSell backpack enchant.
+	 * @throws BackpackNotFoundException if player has no backpack
 	 */
-	public abstract void sellBackpack(Player player, boolean sellAll);
+	public abstract void sellBackpack(Player player, boolean sellAll) throws BackpackNotFoundException;
 
 	/**
 	 * Handles the specified broken blocks and tries to add them into backpack
