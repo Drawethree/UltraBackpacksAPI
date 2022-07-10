@@ -1,21 +1,45 @@
 package dev.drawethree.ultrabackpacks.api.model.backpack;
 
-import java.util.Map;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.List;
 
 public interface IBackpackData {
 
 	/**
-	 * Returns Map of enchants that player has in his backpack.
-	 * Key - Id of enchant
-	 * Value - Level of enchant
-	 * @return Map of enchants belonging to player
+	 * Returns List of backpack items {@link IBackpackItem}
+	 *
+	 * @return list of item in backpack
 	 */
-	Map<Integer, Long> getEnchants();
+	List<? extends IBackpackItem> getItems();
 
 	/**
-	 * Returns Map
-	 * Key - {@link CompMaterial}
-	 * @return Map of backpack contents
+	 * Adds an item to backpack. If item with type already exists, it adds the quantity to already existing item.
+	 *
+	 * @return Added / Updated {@link IBackpackItem}
 	 */
-	Map<?, Long> getItems();
+	IBackpackItem addItem(ItemStack item);
+
+	/**
+	 * Removes an item from backpack.
+	 *
+	 * @return removed {@link IBackpackItem}, or null if not found.
+	 */
+	IBackpackItem removeItem(Material type);
+
+	/**
+	 * Sets the enchant level of given enchant
+	 *
+	 * @return removed {@link IBackpackItem}
+	 */
+	boolean setEnchantLevel(BackpackEnchantment enchantment, long level);
+
+	/**
+	 * Return the current enchant level
+	 *
+	 * @param enchantment {@link BackpackEnchantment}
+	 * @return current level of enchant
+	 */
+	long getEnchantLevel(BackpackEnchantment enchantment);
 }
