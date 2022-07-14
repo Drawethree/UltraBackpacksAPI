@@ -42,4 +42,10 @@ public interface IBackpackData {
 	 * @return current level of enchant
 	 */
 	long getEnchantLevel(BackpackEnchantment enchantment);
+
+	/**
+	 * Returns maximum amount of items that backpack can have
+	 * @return maximum amount of items that backpack can have
+	 */
+	long getCapacity();
 }
