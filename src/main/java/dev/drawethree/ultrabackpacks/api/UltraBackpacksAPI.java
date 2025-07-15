@@ -5,8 +5,10 @@ import dev.drawethree.ultrabackpacks.api.model.backpack.IBackpackData;
 import dev.drawethree.ultrabackpacks.api.service.BackendAPI;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
+import java.util.Map;
 
 public final class UltraBackpacksAPI {
 
@@ -52,5 +54,25 @@ public final class UltraBackpacksAPI {
 	 */
 	public static void handleBlocksBroken(Player player, List<Block> blocks) {
 		BackendAPI.getImplementation().handleBlocksBroken(player, blocks);
+	}
+
+	/**
+	 * Adds items into backpack
+	 *
+	 * @param player - Player
+	 * @param items - Map of items with amounts as value
+	 */
+	public static void addItemsToBackpack(Player player, Map<ItemStack,Long> items) {
+		BackendAPI.getImplementation().addItemsToBackpack(player, items);
+	}
+
+	/**
+	 * Adds items into backpack
+	 *
+	 * @param player - Player
+	 * @param items - Map of items with amounts as value
+	 */
+	public static void addItemsToBackpack(Player player, List<ItemStack> items) {
+		BackendAPI.getImplementation().addItemsToBackpack(player, items);
 	}
 }

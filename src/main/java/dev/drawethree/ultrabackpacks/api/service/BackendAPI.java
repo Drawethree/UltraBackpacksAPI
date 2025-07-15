@@ -4,8 +4,10 @@ import dev.drawethree.ultrabackpacks.api.exception.BackpackNotFoundException;
 import dev.drawethree.ultrabackpacks.api.model.backpack.IBackpackData;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract class BackendAPI {
 
@@ -57,4 +59,20 @@ public abstract class BackendAPI {
 
 		return implementation;
 	}
+
+	/**
+	 * Adds items into backpack
+	 *
+	 * @param player - Player
+	 * @param items - Map of items with amounts as value
+	 */
+	public abstract void addItemsToBackpack(Player player, Map<ItemStack, Long> items);
+
+	/**
+	 * Adds items into backpack
+	 *
+	 * @param player - Player
+	 * @param items - List of items
+	 */
+	public abstract void addItemsToBackpack(Player player,List<ItemStack> items);
 }
